@@ -5,7 +5,7 @@ from draw2d import \
     draw_rectangle, draw_polygon, draw_text, finish_drawing
 
 import tkinter as tk
-
+import random
 
 
 def main():
@@ -23,12 +23,21 @@ def main():
     # as draw_sky and draw_ground here.
     
     draw_sky(canvas, scene_width, scene_height)
-    draw_cloud(canvas, 150, 400, 400)
-    draw_cloud(canvas, 700, 350, 400)
+    draw_mountain(canvas, 400, 150, 335)
+    draw_mountain(canvas, 300, 150, 335)
+    draw_mountain(canvas, 500, 150, 335)
+    draw_cloud(canvas, 150, 350, 400)
+    draw_cloud(canvas, 700, 425, 400)
     draw_grass(canvas, scene_width, scene_height)
-    draw_pine_tree(canvas, 550, 150, 250)
-    draw_pine_tree(canvas, 200, 100, 200)
+    draw_pine_tree(canvas, 550, 100, 150)
+    draw_pine_tree(canvas, 700, 75, 200)
+    draw_pine_tree(canvas, 625, 100, 200)
+    draw_pine_tree(canvas, 50, 75, 200)
+    draw_pine_tree(canvas, 125, 100, 200)
+    draw_pine_tree(canvas, 200, 50, 200)
+    draw_birds(canvas, scene_width, scene_width, num_birds=12)
     draw_grid(canvas, scene_width, scene_height, 50)
+    
    
     
     
@@ -49,7 +58,7 @@ def draw_grid(canvas, width, height, interval):
     for y in range(interval, height, interval):
         draw_line(canvas, 0, y, width, y)
         draw_text(canvas, label_x, y, f"{y}")
-        
+     
  
     
 def draw_sky(canvas, scene_width, scene_height):
@@ -60,6 +69,16 @@ def draw_grass(canvas, scene_width, scene_height):
     draw_rectangle(canvas, 0, 0,
         scene_width, scene_height / 3, width=0, fill="paleGreen3")
         
+def draw_mountain(canvas, center_x, bottom, height):
+    skirt_width = height / 2
+    skirt_height = height - height
+    trunk_top = skirt_height + skirt_width
+    skirt_left = center_x - skirt_width / 2
+    skirt_right = center_x + skirt_width / 2
+    skirt_bottom = trunk_top
+    peak_x = center_x
+    peak_y = bottom + height
+    draw_polygon(canvas, skirt_left, skirt_bottom, peak_x, peak_y, skirt_right, skirt_bottom, fill="slateGray")
 
 def draw_pine_tree(canvas, center_x, bottom, height):
     trunk_width = height / 10
@@ -106,7 +125,12 @@ def draw_cloud(canvas, center_x, bottom, height):
     draw_oval(canvas, main_cloud_left, main_cloud_bottom, main_cloud_right, main_cloud_top, width = 0, fill = "ivory1")
   
 
-
+def draw_birds(canvas, scene_width, scene_height, num_birds=12):
+    for i in range(num_birds):
+        x = random.randint(0, scene_width-50 )
+        y = random.randint(250, scene_height-55)
+        draw_arc(canvas, x, y, x+25, y+15, start=360, extent=90, width=1, outline="gray20",)
+        draw_arc(canvas, x+25, y, x+50, y+15, start=90, extent=90, width=1, outline="gray20",)
   
     
     
