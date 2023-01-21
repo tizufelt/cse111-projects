@@ -102,15 +102,50 @@ def get_verb(quantity, tense):
     word = random.choice(words)
     return word
 
-    
+def get_prepositional_phrase(quantity):
+        """Build and return a prepositional phrase composed of three
+    words: a preposition, a determiner, and a noun by calling the
+    get_preposition, get_determiner, and get_noun functions.
+    Parameter
+        quantity: an integer that determines if the
+            determiner and nouns are singular or plural.
+    Return: a prepositional phrase.
+    """   
+        preposition = get_preposition()
+        determiner = get_determiner(quantity)
+        noun = get_noun(quantity)
+
+        phrase = preposition + " " + determiner + " " + noun
+
+        return phrase
+
+
+
+def get_preposition():
+    """Return a randomly chosen preposition
+        from this list of prepositions:
+        "about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"
+
+    Return: a randomly chosen preposition.
+    """
+    words = ["about", "above", "across", "after", "along","around", "at", "before", "behind", "below","beyond", "by", "despite", "except", "for","from", "in", "into", "near", "of","off", "on", "onto", "out", "over","past", "to", "under", "with", "without"]
+
+    word = random.choice(words)
+    return word    
 
 def main():
-    print(f"{get_determiner(1)} {get_noun(1)} {get_verb(1,'past')} ")
-    print(f"{get_determiner(2)} {get_noun(2)} {get_verb(1,'past')}  ")
-    print(f"{get_determiner(1)} {get_noun(1)} {get_verb(1,'present')}  ")
-    print(f"{get_determiner(2)} {get_noun(2)} {get_verb(1,'present')}  ")
-    print(f"{get_determiner(1)} {get_noun(1)} {get_verb(1,'future')}  ")
-    print(f"{get_determiner(2)} {get_noun(2)} {get_verb(1,'future')} ")
+    print(f"{get_determiner(1)} {get_noun(1)} {get_verb(1,'past')} {get_prepositional_phrase(1)} ")
+    print(f"{get_determiner(2)} {get_noun(2)} {get_verb(1,'past')} {get_prepositional_phrase(2)} ")
+    print(f"{get_determiner(1)} {get_noun(1)} {get_verb(1,'present')} {get_prepositional_phrase(1)} ")
+    print(f"{get_determiner(2)} {get_noun(2)} {get_verb(1,'present')} {get_prepositional_phrase(2)} ")
+    print(f"{get_determiner(1)} {get_noun(1)} {get_verb(1,'future')} {get_prepositional_phrase(1)} ")
+    print(f"{get_determiner(2)} {get_noun(2)} {get_verb(1,'future')} {get_prepositional_phrase(2)} ")
+
    
 if __name__ == "__main__":
     main()
