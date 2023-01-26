@@ -29,7 +29,7 @@ def miles_per_gallon(start_miles, end_miles, amount_gallons):
 
 
 # If this file was executed like this:
-# > python example.py
+# > python example.py2010
 # then call the main function. However, if this file
 # was simply imported, then skip the call to main.
 if __name__ == "__main__":
