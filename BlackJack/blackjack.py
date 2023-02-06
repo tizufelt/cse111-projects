@@ -1,10 +1,14 @@
 
 from card import Card
 from deck import Deck
+from tkinter import *
 import people
 import chip
 import sys
 import time
+
+root = Tk()
+
 
 decision_logger = []
 
