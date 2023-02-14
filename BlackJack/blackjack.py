@@ -2,6 +2,7 @@
 from card import Card
 from deck import Deck
 from tkinter import *
+from PIL import Image, ImageTK
 import people
 import chip
 import sys
