@@ -7,6 +7,8 @@ from matplotlib import pyplot as plt
 
 condition = True
 
+
+
 def icmp(host):
     pinglist = []
     param = "-n" if platform.system().lower() == "windows" else "-c"
@@ -111,10 +113,10 @@ def main():
         inter = input('time to interval:')
         if sys.platform == 'darwin' or 'linux':
             if_linux(ip, inter, db)
-        if sys.platform == 'windows' or 'win32':
+        if sys.platform == 'windows' or "win32":
             if_windows(ip, inter, db)
     
-        plt.show()
+    plt.show()
     
 if __name__ == "__main__":
     main()
